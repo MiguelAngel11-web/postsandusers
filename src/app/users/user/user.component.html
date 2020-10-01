@@ -1,0 +1,27 @@
+<table class="table table-hover" style="color: white;">
+    <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Publicasiones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let u of allUsers">
+            <th scope="row">{{u.name}}</th>
+            <td>{{u.email}}</td>
+            <td>{{u.address.street}} {{u.address.suite}} {{u.address.city}} {{u.address.zipcode}}{{u.address.geo.lat}} {{u.address.geo.lng}}</td>
+            <div *ngFor="let p of posts">
+                <div *ngIf=" p.userId == u.id">
+                    <td>
+                        {{p.title}}
+                    </td>
+                </div>
+            </div>
+            <!--  <div *ngIf=" posts.userId == u.id">
+            <td></td>
+          </div> -->
+        </tr>
+    </tbody>
+</table>

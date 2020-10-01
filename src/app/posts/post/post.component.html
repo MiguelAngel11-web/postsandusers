@@ -1,0 +1,21 @@
+<div class="container mt-4 mr-5">
+    <div class="card-columns">
+        <div class="card mb-3" *ngFor="let p of post" style="max-width: 540px;">
+            <div class="row no-gutters">
+
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{p.title}}</h5>
+                        <p class="card-text">{{p.body}}</p>
+                        <div *ngFor="let u of userName">
+                            <div *ngIf="u.id == p.userId">
+                                <p class="card-text"><small class="text-muted">Author: {{u.username}}</small></p>
+                            </div>
+                        </div>
+                        <a [routerLink]="['/singlepost',p.id]" class="btn btn-outline-primary btn-block" routerLinkActive="active">Ver más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

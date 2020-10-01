@@ -1,0 +1,34 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="card text-center mb-3">
+        <div class="card-header">
+            {{post.title}}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Post id: {{post.id}}</h5>
+            <p class="card-text">{{post.body}}</p>
+            <a [routerLink]="['/posts']" class="btn btn-outline-danger btn-block">Regresar</a>
+        </div>
+        <div class="card-footer text-muted">
+            Authot id: {{post.userId}}
+        </div>
+    </div>
+
+    <div class="card border-info mb-3">
+        <h3 style="align-self: center;">Comentarios</h3>
+        <div *ngIf=" noComments == true else Marvel">
+            <!--Uso del *ngIf para saber que logo procede-->
+            <h4>No hay comentarios todavia :(</h4>
+            <!--DC-->
+        </div>
+        <ng-template #Marvel>
+            <div class="card mt-5" *ngFor="let c of comment">
+                <div class="card-header">{{c.email}}</div>
+                <div class="card-body text-info">
+                    <h5 class="card-title">{{c.name}}</h5>
+                    <p class="card-text">{{c.body}}</p>
+                </div>
+            </div>
+        </ng-template>
+
+    </div>
+</div>
